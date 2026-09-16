@@ -14,3 +14,8 @@
 - 同時存在三門課的講義 ~/Correct2026, ~/Complex2026, ~/Differ2026，請互相參考
 - 英文標題大小寫依層級統一：`# GOOD JOB`（全大寫）、`## Good Job`（Title Case）、`### Good job`（Sentence case，以下層級亦同）。Title Case 的冠詞、連接詞與介系詞通常小寫，標題開頭、結尾或冒號後開頭除外；Sentence case 保留專有名詞與縮寫的慣用大小寫。數學公式、程式碼與連結網址保持原樣。
 - LaTeX 數字的千分位分隔符號使用 `{,}`，括號內不加空格，例如 `201{,}000`；一般列舉項目或參數之間的逗號仍依原規則在逗號後留空格。
+
+# Kahoot 題型
+
+- 使用者的 Kahoot 帳號為付費版，可用題型為：Quiz（含複選，可標記多個正確答案）、True or false、Type answer（自由輸入文字）、Slider（數值範圍作答）、Pin answer（在圖片上標記位置）、Puzzle（排序）。
+- 草擬 Kahoot 題目時依內容挑選合適題型，而不要預設只有傳統四選一：分類題（order／linear 或 nonlinear／homogeneous 等獨立屬性）適合用 Quiz 複選，每個屬性各自標記對錯；數值題（例如「約 6.93 小時」「約 138.63 個月」）適合用 Slider；步驟排序類適合用 Puzzle。
