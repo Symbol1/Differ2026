@@ -7,8 +7,14 @@
 - cell 大概十行，這是為了 jk 翻 cell的時候不要一次捲動太多
 - Markdown 內文按句子分行，讓每個句子在呈現時也另起一行；同一段落內使用行尾兩個空格加換行，不只在原始碼中換行。長句可依語意在子句之間分行，參照使用者既有排版。空行只用於真正換段，公式前後仍遵循下述 TeX 段落規則。
 - Sage 程式碼的 cell 語言標記使用 `python`，以顯示語法配色；每個 code cell 的 `metadata.vscode.languageId` 與 notebook 的 `metadata.language_info.name` 都設為 `python`，不可設為 `sage`。執行核心仍使用 SageMath，保留 `metadata.kernelspec` 的 SageMath 設定。儲存後檢查所有 code cells，避免編輯器留下 `languageId: sage`。
+  - **不要再把語法配色改成 sage。** 缺少 `metadata.vscode.languageId` 同樣算違規：VS Code 會退回 kernelspec 的 `"language": "sage"`，結果語法配色消失。因此每個 code cell（包含新增的 cell）都必須明確寫上 `"metadata": {"vscode": {"languageId": "python"}}`。
+  - 不要修改 `metadata.kernelspec`（保留 `"language": "sage"`、`"name": "sagemath"`），也不要把 `language_info.name` 改成 `sage`。
+  - 每次編輯 `.ipynb` 後都要跑一次檢查，確認所有 code cells 的 `languageId` 都是 `python`，缺漏或為 `sage` 就立即補正。
 - LaTeX 原始碼要加上適當空格，讓公式容易閱讀：二元運算子與關係符號（如 `+`、`-`、`=`、`\in`、`\le`）兩側留空格，逗號後留空格。例如 `s_b(t) = A\cos(2\pi f_ct + \pi b),\qquad b \in \{0, 1\}`。
 - 行內公式與前後文字的間距依上述混排規則處理；`$` 與公式內容之間不加空格。
+- 函數的冪次寫在引數之後，此時引數加括號：`\sin(\pi t)^3`、`\cos(\theta)^2`，不寫成 `\sin^3(\pi t)`、`\cos^2\theta`。指數是對函數值取冪，不是函數名的一部分。
+- 除此之外，函數引數**只在會被誤讀時**才加括號，不要一律加。後面緊接另一個因式或上標時加：`\cos(a) I`、`\sin(\pi t)^3`、`\ln(3/2)`、`\sin(x)\cos(x)`。後面是關係符、運算子、逗號、`\frac` 之類的群組邊界或行尾時不加，因為那些本來就分隔得很清楚：`\ln2 \approx 6.93`、`\frac{\ln2}{0.005}`、`$\sin x$`、`\sin y = 0`、`\ln|y|`。
+- 算子與其作用對象之間、以及帶有上下標的因式之間，在原始碼留一個空格：`T_a y`、`D y`、`D T_a y`、`P(D) y`、`e^{-ia} z`、`\frac{a^2 D^2}{2!}`。純量並列不加空格，例如 `cy`、`iy'`、`Ce^{rt}`。函數值與其後因式之間同樣留空格：`\cos(a) I + \sin(a) D`，不寫成 `\cos a\,I + \sin a\,D`。
 - 展示公式 `$$ ... $$` 前後的空行依 TeX 的段落語意處理：空行代表換段，不是單純增加視覺留白。公式延續前文時，前文與公式之間不加空行；後文延續同一段時，公式與後文之間也不加空行。上下都有空行會讓公式獨立成段，通常不合講述脈絡，因此不要慣例性地在兩側都加空行；只在語意確實換段時留空行。
 - 對 LaTeX 空格的詳細用法有疑問時，參照既有 `.ipynb` 講義與使用者已調整的公式格式。
 - 同時存在三門課的講義 ~/Correct2026, ~/Complex2026, ~/Differ2026，請互相參考
