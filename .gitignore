@@ -1,3 +1,15 @@
 jjding/*
 *.xlsx
 Midterm/*
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.xdv
+*.fls
+*.fdb_latexmk
+
+# 考卷原始檔含答案註解，不進 git
+*.tex

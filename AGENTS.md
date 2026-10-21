@@ -19,7 +19,7 @@
 - 建立或修改 `.ipynb` 講義時，每個 section title（包含各級 Markdown 標題 `#` 至 `######`）必須獨立放在一個 Markdown cell；內文、公式、表格、圖片、其他標題應放在其他 cells。
 - 每個 cell 的內容不得有 leading empty line 或 trailing empty line；分段所需的空白行只保留在 cell 內容中間。
 - cell 大概十行，這是為了 jk 翻 cell 的時候不要一次捲動太多
-- 講義用到的照片與圖檔（板書照片、截圖等）放在以講義日期命名的資料夾（例如 `1012/`），檔名用簡短的英文名稱（小寫、以 `-` 連接），描述圖中畫了什麼，或補充、說明了什麼，例如 `0923/ball-leaves-hilltop-anytime.png`、`0930/two-paths-around-small-rectangle.png`。不要用 `image-1.png`、`IMG_1924.jpeg` 這類流水號，也不要加 `-board`、`-annotated` 這類只說明圖片形式的字尾。檔名會出現在講義原始碼、`git log`、`ls` 中，alt text 只有渲染後才看得到。改名時一併更新講義中的連結。照片保留原始解析度，講義直接連結原始檔；同一張照片不要另存縮小的複本，也不要留多種解析度。
+- 講義用到的照片與圖檔（板書照片、截圖等）放在以講義日期命名的資料夾（例如 `1012/`），檔名用簡短的英文名稱（小寫、以 `-` 連接），描述圖中畫了什麼，或補充、說明了什麼，例如 `0923/ball-leaves-hilltop-anytime.png`、`0930/two-paths-around-small-rectangle.png`。不要用 `image-1.png`、`IMG_1924.jpeg` 這類流水號，也不要加 `-board`、`-annotated` 這類只說明圖片形式的字尾。檔名會出現在講義原始碼、`git log`、`ls` 中，alt text 只有渲染後才看得到。改名時一併更新講義中的連結。照片保留拍攝時的完整解析度，不要另存縮小的複本。格式要能在 VS Code 與 GitHub 上直接顯示（JPEG、PNG、WebP）；iPhone 的 HEIC 先轉成同解析度的 JPEG 再放進資料夾。同一張照片在 repo 中只留一份。
 - Markdown 內文按句子分行，讓每個句子在呈現時也另起一行；同一段落內使用行尾兩個空格加換行，不只在原始碼中換行。長句可依語意在子句之間分行，參照使用者既有排版。空行只用於真正換段，公式前後仍遵循下述 TeX 段落規則。
 - Sage 程式碼的 cell 語言標記使用 `python`，以顯示語法配色；每個 code cell 的 `metadata.vscode.languageId` 與 notebook 的 `metadata.language_info.name` 都設為 `python`，不可設為 `sage`。執行核心仍使用 SageMath，保留 `metadata.kernelspec` 的 SageMath 設定。儲存後檢查所有 code cells，避免編輯器留下 `languageId: sage`。
   - **不要再把語法配色改成 sage。** 缺少 `metadata.vscode.languageId` 同樣算違規：VS Code 會退回 kernelspec 的 `"language": "sage"`，結果語法配色消失。因此每個 code cell（包含新增的 cell）都必須明確寫上 `"metadata": {"vscode": {"languageId": "python"}}`。
